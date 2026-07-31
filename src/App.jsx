@@ -112,36 +112,67 @@ const MusicPlayer = ({ isPlaying, setIsPlaying, audioRef }) => {
 
 const HeroSection = ({ onOpenInvitation, isOpen }) => {
   return (
-    <section className="relative min-h-screen flex flex-col justify-between items-center text-center p-6 bg-[#2B090A] text-amber-100 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-between text-center p-6 bg-[#2B090A] text-amber-100 overflow-hidden">
+      {/* Background Ornament Overlays */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:16px_16px]" />
       
-      <div className="pt-8 z-10">
-        <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="text-amber-300/80 tracking-[0.3em] uppercase text-xs font-serif mb-2">
+      {/* Top Section */}
+      <div className="pt-12 z-10 w-full flex-none">
+        <motion.p 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-amber-300/80 tracking-[0.3em] uppercase text-xs font-serif mb-4"
+        >
           Undangan Pernikahan
         </motion.p>
-        <GununganIcon className="w-16 h-20 mx-auto text-amber-400 opacity-90 my-2" />
+        <GununganIcon className="w-20 h-24 mx-auto text-amber-400 opacity-90" />
       </div>
 
-      <div className="z-10 my-auto py-6">
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="font-serif italic text-amber-200/90 text-sm md:text-base mb-3">
+      {/* Center Section - Nama */}
+      <div className="z-10 flex-grow flex flex-col justify-center py-8">
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="font-serif italic text-amber-200/90 text-sm md:text-base mb-4"
+        >
           Walimatul 'Ursy
         </motion.p>
-        <motion.h1 initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.4 }} className="text-5xl md:text-7xl font-serif text-amber-300 tracking-wide my-4 font-bold">
+
+        <motion.h1 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4 }}
+          className="text-5xl md:text-7xl font-serif text-amber-300 tracking-wide my-4 font-bold"
+        >
           {GROOM_NAME} <span className="text-3xl md:text-5xl font-light text-amber-400/80">&</span> {BRIDE_NAME}
         </motion.h1>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="w-32 h-[1px] bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto my-4" />
-        <p className="text-amber-100/80 font-serif text-sm md:text-base">Sabtu, 12 Desember 2026</p>
-        <p className="text-amber-300/70 text-xs mt-1">Semingkir, Randudongkal, Pemalang</p>
+
+        <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto my-6" />
+
+        <p className="text-amber-100/80 font-serif text-sm md:text-base">
+          Sabtu, 12 Desember 2026
+        </p>
+        <p className="text-amber-300/70 text-xs mt-2">
+          Semingkir, Randudongkal, Pemalang
+        </p>
       </div>
 
-      <div className="pb-12 z-10 w-full max-w-sm">
+      {/* Bottom Action */}
+      <div className="pb-12 z-10 w-full max-w-sm flex-none">
         {!isOpen ? (
-          <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={onOpenInvitation} className="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-stone-950 font-serif font-semibold text-sm tracking-widest shadow-lg shadow-amber-900/50 flex items-center justify-center gap-2 border border-amber-300/50">
-            <Music className="w-4 h-4" /> BUKA UNDANGAN
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={onOpenInvitation}
+            className="w-full py-4 px-6 rounded-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 text-stone-950 font-serif font-semibold text-sm tracking-widest shadow-lg shadow-amber-900/50 flex items-center justify-center gap-2 border border-amber-300/50"
+          >
+            <Music className="w-4 h-4" />
+            BUKA UNDANGAN
           </motion.button>
         ) : (
           <div className="text-amber-300/60 text-xs tracking-widest font-serif flex items-center justify-center gap-1 animate-pulse">
-            GULIR KE BAWAH UNTUK MELIHAT SLIDE <ChevronRight className="w-3 h-3 rotate-90" />
+            GULIR KE BAWAH <ChevronRight className="w-3 h-3 rotate-90" />
           </div>
         )}
       </div>
